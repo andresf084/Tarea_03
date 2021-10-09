@@ -1,5 +1,12 @@
-function multiplicacion(multiplicando1, multiplicando2) {
-    return multiplicando1 * multiplicando2;
+function dataSchool() {
+    fetch('data.json')
+        .then(function(res){
+            return res.json();
+        })
+        .then(function(data){
+            console.log(data);
+        })
+        
 }
-var resultadoMultiplicacion = multiplicacion(8, 3);
-console.log(resultadoMultiplicacion);
+
+dataSchool()
