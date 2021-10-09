@@ -43047,11 +43047,38 @@ let dataSchool =
 ]
 
 
-console.log(dataSchool);
+//console.log(dataSchool);
 //console.log(dataSchool[0].colegio.primaria[0].primero[0].estudiantes.length);
+//console.log(dataSchool[0].colegio.primaria.length);
 
-for (let a=0; a < dataSchool.length; a++) {
-    for (let b=0; b < dataSchool[a].length; b++) {
-    console.log(a)
+
+//const data = dataSchool
+
+function colleges() {
+    for (i = 0; i < dataSchool.length; i++) {
+        const college = dataSchool[i];
+        console.log(college);
     }
 }
+
+colleges()
+
+
+
+
+//var arreglo = [1,2,3,4,5,6,7,8,9];
+//console.log(arreglo[6]);
+
+/*function studyCycles () {
+let cycles = Object.keys(dataSchool[0].colegio);
+for (let i = 0; i < cycles.length; i++) {
+    let cycle = [cycles[i]];
+    //console.log(cycle);
+    //console.log(typeof(cycle))
+}
+}*/
+
+
+
+
+
