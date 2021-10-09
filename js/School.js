@@ -1,4 +1,5 @@
-let dataSchool = [
+let dataSchool = 
+[
     {
         "colegio": {
             "primaria": [
@@ -43046,5 +43047,11 @@ let dataSchool = [
 ]
 
 
+console.log(dataSchool);
+//console.log(dataSchool[0].colegio.primaria[0].primero[0].estudiantes.length);
 
-console.log(typeof(dataSchool))
+for (let a=0; a < dataSchool.length; a++) {
+    for (let b=0; b < dataSchool[a].length; b++) {
+    console.log(a)
+    }
+}
