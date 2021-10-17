@@ -43069,6 +43069,16 @@ secDictionary.set(3, "noveno");
 secDictionary.set(4, "decimo");
 secDictionary.set(5, "once");
 
+let subjectsDictionary = new Map();
+subjectsDictionary.set(0, "historia");
+subjectsDictionary.set(1, "matematicas");
+subjectsDictionary.set(2, "filosofia");
+subjectsDictionary.set(3, "religion");
+subjectsDictionary.set(4, "artes");
+subjectsDictionary.set(5, "educacion_fisica");
+subjectsDictionary.set(6, "biologia");
+subjectsDictionary.set(7, "quimica");
+subjectsDictionary.set(8, "fisica");
 
 
 /**Necesidad #1: La cantidad total de estudiantes que hay en el colegio */
@@ -43365,4 +43375,24 @@ function qtyTotalGirlsSec() {
 }
 
 
-console.log(secundaryCycle[0][secDictionary.get(0)][0].estudiantes[0].asignaturas[0].historia);
+var notes = Object.keys(primaryCycle[0][primDictionary.get(0)][0].estudiantes[0].asignaturas[0][subjectsDictionary.get(0)]);
+var sumNotes = 0;
+//var k = 0;
+//var l = 0;
+var promNotes = 0;
+for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+    for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+        for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+            //console.log(primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length);
+            for (let l=0; l < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k].length; k++) {
+                console.log(primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k].length);
+                var x = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(l)];
+                let note = notes[x];
+                sumNotes += aObj[note];
+                i = i + 1;
+                promNotes = sumNotes/i;
+            }
+        }
+    }
+}
+//console.log(promNotes);
