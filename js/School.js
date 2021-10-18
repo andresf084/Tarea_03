@@ -43526,27 +43526,38 @@ function averageNotesPrimGrade(grade) {
     let arrNotesPrimGradeA = [];
     let arrNotesPrimGradeB = [];
     let arrNotesPrimGradeTotal = [];
+    
+    //Con este for se itera por los cursos A.
     for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
         for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][0].estudiantes.length; j++) {
             for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
                 var periodsPrimGradeA = primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
-                var periodsPrimGradeB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimGradeA in periodsPrimGradeA) {
                     arrNotesPrimGradeA.push(periodsPrimGradeA[notesPrimGradeA]);
                 }
-                for (let notesPrimGradeB in periodsPrimGradeB) {
-                    arrNotesPrimGradeB.push(periodsPrimGradeB[notesPrimGradeB]);
-                }
-                arrNotesPrimGradeTotal = arrNotesPrimGradeA.concat(arrNotesPrimGradeB);
-                sumNotesPrimGrade = arrNotesPrimGradeTotal.reduce((previus, number) => previus + number);
-                promNotesPrimGrade = sumNotesPrimGrade / arrNotesPrimGradeTotal.length;
             }
         }
     }
 
+    //Con este for se itera por los cursos B.
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimGradeB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesPrimGradeB in periodsPrimGradeB) {
+                    arrNotesPrimGradeB.push(periodsPrimGradeB[notesPrimGradeB]);
+                }
+            }
+        }
+    }
+    
+    arrNotesPrimGradeTotal = arrNotesPrimGradeA.concat(arrNotesPrimGradeB);
+    sumNotesPrimGrade = arrNotesPrimGradeTotal.reduce((previus, number) => previus + number);
+    promNotesPrimGrade = sumNotesPrimGrade / arrNotesPrimGradeTotal.length;
     return promNotesPrimGrade;
 
 }
+
 
 //Con esta función se calcula el promedio en los grados de secundaria (sexto a once).
 function averageNotesSecGrade(grade) {
@@ -43556,24 +43567,34 @@ function averageNotesSecGrade(grade) {
     let arrNotesSecGradeA = [];
     let arrNotesSecGradeB = [];
     let arrNotesSecGradeTotal = [];
+
+    //Con este for se itera por los cursos A.
     for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
         for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes.length; j++) {
             for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
                 var periodsSecGradeA = secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
-                var periodsSecGradeB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecGradeA in periodsSecGradeA) {
                     arrNotesSecGradeA.push(periodsSecGradeA[notesSecGradeA]);
                 }
-                for (let notesSecGradeB in periodsSecGradeB) {
-                    arrNotesSecGradeB.push(periodsSecGradeB[notesSecGradeB]);
-                }
-                arrNotesSecGradeTotal = arrNotesSecGradeA.concat(arrNotesSecGradeB);
-                sumNotesSecGrade = arrNotesSecGradeTotal.reduce((previus, number) => previus + number);
-                promNotesSecGrade = sumNotesSecGrade / arrNotesSecGradeTotal.length;
             }
         }
     }
 
+    //Con este for se itera por los cursos B.
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                var periodsSecGradeB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesSecGradeB in periodsSecGradeB) {
+                    arrNotesSecGradeB.push(periodsSecGradeB[notesSecGradeB]);
+                }
+            }
+        }
+    }
+    
+    arrNotesSecGradeTotal = arrNotesSecGradeA.concat(arrNotesSecGradeB);
+    sumNotesSecGrade = arrNotesSecGradeTotal.reduce((previus, number) => previus + number);
+    promNotesSecGrade = sumNotesSecGrade / arrNotesSecGradeTotal.length;
     return promNotesSecGrade;
 
 }
@@ -43618,7 +43639,7 @@ function medianNotesPrim() {
     });
     a = arrNotesPrimTotal.length / 2;
     if (arrNotesPrimTotal.length % 2 == 0)
-        medianaPrim = (arrNotesPrimTotal[a] + arrNotesPrimTotal[a + 1])/2;
+        medianaPrim = (arrNotesPrimTotal[a] + arrNotesPrimTotal[a + 1]) / 2;
     else
         medianaPrim = Math.ceil(a);
     return medianaPrim;
@@ -43665,7 +43686,7 @@ function medianNotesSec() {
     });
     a = arrNotesSecTotal.length / 2;
     if (arrNotesSecTotal.length % 2 == 0)
-        medianaSec = (arrNotesSecTotal[a] + arrNotesSecTotal[a + 1])/2;
+        medianaSec = (arrNotesSecTotal[a] + arrNotesSecTotal[a + 1]) / 2;
     else
         medianaSec = Math.ceil(a);
     return medianaSec;
@@ -43736,13 +43757,13 @@ function medianNotesCollege() {
 
     arrNotesPrimTotal = arrNotesPrimA.concat(arrNotesPrimB);
     arrNotesSecTotal = arrNotesSecA.concat(arrNotesSecB);
-    arrNotesCollege = arrNotesPrimTotal.concat(arrNotesSecTotal) 
+    arrNotesCollege = arrNotesPrimTotal.concat(arrNotesSecTotal)
     arrNotesCollege.sort(function (a, b) {
         return a - b;
     });
     a = arrNotesCollege.length / 2;
     if (arrNotesCollege.length % 2 == 0)
-        medianaCollege = (arrNotesCollege[a] + arrNotesCollege[a + 1])/2;
+        medianaCollege = (arrNotesCollege[a] + arrNotesCollege[a + 1]) / 2;
     else
         medianaCollege = Math.ceil(a);
     return medianaCollege;
@@ -43789,7 +43810,7 @@ function medianNotesPrimGrade(grade) {
     });
     a = arrNotesPrimTotal.length / 2;
     if (arrNotesPrimTotal.length % 2 == 0)
-        medianaPrim = (arrNotesPrimTotal[a] + arrNotesPrimTotal[a + 1])/2;
+        medianaPrim = (arrNotesPrimTotal[a] + arrNotesPrimTotal[a + 1]) / 2;
     else
         medianaPrim = Math.ceil(a);
     return medianaPrim;
@@ -43834,7 +43855,7 @@ function medianNotesSecGrade(grade) {
     });
     a = arrNotesSecTotal.length / 2;
     if (arrNotesSecTotal.length % 2 == 0)
-        medianaSec = (arrNotesSecTotal[a] + arrNotesSecTotal[a + 1])/2;
+        medianaSec = (arrNotesSecTotal[a] + arrNotesSecTotal[a + 1]) / 2;
     else
         medianaSec = Math.ceil(a);
     return medianaSec;
@@ -43849,7 +43870,7 @@ function medianNotesPrimCurse(curse) {
 
     let medianaPrimCurse = 0;
     let arrNotesPrimA = [];
- 
+
     //Con este for se itera por los cursos, de acuerdo al parametro escogido.
     for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
         for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][curse].estudiantes.length; j++) {
@@ -43867,7 +43888,7 @@ function medianNotesPrimCurse(curse) {
     });
     a = arrNotesPrimA.length / 2;
     if (arrNotesPrimA.length % 2 == 0)
-        medianaPrimCurse = (arrNotesPrimA[a] + arrNotesPrimA[a + 1])/2;
+        medianaPrimCurse = (arrNotesPrimA[a] + arrNotesPrimA[a + 1]) / 2;
     else
         medianaPrimCurse = Math.ceil(a);
     return medianaPrimCurse;
@@ -43879,7 +43900,7 @@ function medianNotesSecCurse(curse) {
 
     let medianaSecCurse = 0;
     let arrNotesSecA = [];
-    
+
     for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
         for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes.length; j++) {
             for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
@@ -43896,7 +43917,7 @@ function medianNotesSecCurse(curse) {
     });
     a = arrNotesSecA.length / 2;
     if (arrNotesSecA.length % 2 == 0)
-        medianaSecCurse = (arrNotesSecA[a] + arrNotesSecA[a + 1])/2;
+        medianaSecCurse = (arrNotesSecA[a] + arrNotesSecA[a + 1]) / 2;
     else
         medianaSecCurse = Math.ceil(a);
     return medianaSecCurse;
