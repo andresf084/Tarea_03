@@ -1,10 +1,108 @@
 <!DOCTYPE html>
 
 <html>
-    <head>        
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keywords" content="Informes, Colegio">
+        <title>Informes Colegio</title>        
     </head>
     <body>
         <p id="School"></p>
         <script src="/js/School.js"></script>
+        <header>
+            <h1 id="titulo">Informes del Colegio</h1>
+        </header>
+        <main>
+            <article>
+                <div id="informesGenerales">
+                    <span>
+                        <h2>Informes Generales</h2>
+                    </span>
+                    <h3>Seleccione el informe que desea generar:</h3>
+                    <select id="selectInformesGenerales">
+                        <option selected value="0"> Elige una opción </option>
+                        <optgroup label="Cantidad de estudiantes"> 
+                            <option value="1">Cantidad total de estudiantes que hay en primaria</option> 
+                            <option value="2">Cantidad total de estudiantes que hay en bachillerato</option> 
+                            <option value="3">cantidad total de estudiantes que hay en el colegio</option> 
+                        </optgroup> 
+                        <optgroup label="Cantidad de estudiantes por género"> 
+                            <option value="10">Cantidad de niños que hay en primaria</option> 
+                            <option value="11">Cantidad de niñas que hay en primaria</option> 
+                            <option value="12">Cantidad de niños que hay en bachillerato</option>
+                            <option value="13">Cantidad de niñas que hay en bachillerato</option>
+                            <option value="14">Cantidad de niños que hay en el colegio</option> 
+                            <option value="15">Cantidad de niñas que hay en el colegio</option>
+                        </optgroup>
+                        <optgroup label="Media de las notas">
+                            <option value="16">Media de las notas en primaria</option>
+                            <option value="17">Media de las notas en bachillerato</option>
+                            <option value="18">Media de las notas en el colegio</option>
+                        </optgroup>
+                        <optgroup label="Mediana de las notas">
+                            <option value="19">Mediana de las notas en primaria</option>
+                            <option value="20">Mediana de las notas en bachillerato</option>
+                            <option value="21">Mediana de las notas en el colegio</option>
+                        </optgroup>
+                    </select>
+                    <button id="buttonInfomeGeneral" type="button" onclick="alert('El informe se ha generado con éxito!')">Generar Informe</button>
+                    <label for="selectInformesGenerales">Resultados</label> 
+                </div>
+                <div id="informesConParametros">
+                    <span>
+                        <h2>Informes con Parametros</h2>
+                    </span>
+                    <h3>Seleccione el informe que desea generar:</h3>
+                    <select id="selectInformesConParametros">
+                        <option selected value="0"> Elige una opción </option>
+                        <optgroup label="Media de las notas">
+                            <option value="1">Media de las notas de un grado seleccionado</option>
+                            <option value="2">Media de las notas de un curso seleccionado</option>
+                        </optgroup>
+                        <optgroup label="Mediana de las notas">
+                            <option value="3">Mediana de las notas de un grado seleccionado</option>
+                            <option value="4">Mediana de las notas de un curso seleccionado</option>
+                        </optgroup>
+                    </select>
+                    
+                    <span>Elige un ciclo educativo</span>
+                    <input id="primaria" type="radio">
+                    <label for="primaria">Primaria</label>
+                    <input id="secundaria" type="radio">
+                    <label for="secundaria">Secundaria</label>
+                    
+                    <select id="gradosPrimaria">
+                        <option selected value="0">Elige un grado</option>
+                        <option value="1">Primero</option>
+                        <option value="2">Segundo</option>
+                        <option value="3">Tercero</option>
+                        <option value="4">Cuarto</option>
+                        <option value="5">Quinto</option>
+                    </select>
+
+                    <select id="gradosSecundaria">
+                        <option selected value="0">Elige un grado</option>
+                        <option value="1">Sexto</option>
+                        <option value="2">Séptimo</option>
+                        <option value="3">Octavo</option>
+                        <option value="4">Noveno</option>
+                        <option value="5">Décimo</option>
+                        <option value="6">Once</option>
+                    </select>
+                    
+                    <select id="cursos">
+                        <option selected value="0">Elige un curso</option>
+                        <option value="1">Curso A</option>
+                        <option value="2">Curso B</option>
+                    </select>
+                    <button id="buttonInfomeParameters" type="button" onclick="alert('El informe se ha generado con éxito!')">Generar Informe</button>
+                    
+                    <label for="selectInformesConParametros">Resultados</label>
+                </div>
+            </article>
+        </main>
+        <footer>
+            Esta es una página de informes construida y diseñada por Carlos Andres Fandiño
+        </footer>
     </body>
 </html>
