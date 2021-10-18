@@ -43472,15 +43472,15 @@ function averageNotesCollege () {
 /**Necesidad #13: La media de las notas de un curso seleccionado por parametro */
 
 //Con esta función se calcula el promedio en los cursos de primaria (A ó B).
-function averageNotesPrimCurse (grade) {
+function averageNotesPrimCurse (curse) {
 
     let sumNotesPrimCurse = 0;
     let promNotesPrimCurse = 0;
     let arrNotesPrimCurse = [];
     for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][grade].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][grade].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimCurse = primaryCycle[0][primDictionary.get(i)][grade].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimCurse = primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimCurse in periodsPrimCurse) {
                     arrNotesPrimCurse.push(periodsPrimCurse[notesPrimCurse]);
                     sumNotesPrimCurse = arrNotesPrimCurse.reduce((previus,number) => previus + number);
@@ -43494,15 +43494,15 @@ function averageNotesPrimCurse (grade) {
 }
 
 //Con esta función se calcula el promedio en los cursos de secundaria (A ó B).
-function averageNotesSecCurse (grade) {
+function averageNotesSecCurse (curse) {
 
     let sumNotesSecCurse = 0;
     let promNotesSecCurse = 0;
     let arrNotesSecCurse = [];
     for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][grade].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][grade].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecCurse = secundaryCycle[0][secDictionary.get(i)][grade].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                var periodsSecCurse = secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecCurse in periodsSecCurse) {
                     arrNotesSecCurse.push(periodsSecCurse[notesSecCurse]);
                     sumNotesSecCurse = arrNotesSecCurse.reduce((previus,number) => previus + number);
@@ -43518,24 +43518,63 @@ function averageNotesSecCurse (grade) {
 
 /**Necesidad #14: La media de las notas de un grado seleccionado por parametro */
 
+//Con esta función se calcula el promedio en los grados de primaria (primero a quinto).
+function averageNotesPrimGrade (grade) {
 
-function averageNotesPrimCurse (curse) {
-
-    let sumNotesPrimCurse = 0;
-    let promNotesPrimCurse = 0;
-    let arrNotesPrimCurse = [];
+    let sumNotesPrimGrade = 0;
+    let promNotesPrimGrade = 0;
+    let arrNotesPrimGradeA = [];
+    let arrNotesPrimGradeB = [];
+    let arrNotesPrimGradeTotal = [];
     for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimCurse = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
-                for (let notesPrimCurse in periodsPrimCurse) {
-                    arrNotesPrimCurse.push(periodsPrimCurse[notesPrimCurse]);
-                    sumNotesPrimCurse = arrNotesPrimCurse.reduce((previus,number) => previus + number);
-                    promNotesPrimCurse = sumNotesPrimCurse/arrNotesPrimCurse.length; 
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimGradeA = primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                var periodsPrimGradeB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesPrimGradeA in periodsPrimGradeA) {
+                    arrNotesPrimGradeA.push(periodsPrimGradeA[notesPrimGradeA]);
                 }
+                for (let notesPrimGradeB in periodsPrimGradeB) {
+                    arrNotesPrimGradeB.push(periodsPrimGradeB[notesPrimGradeB]);
+                }
+                arrNotesPrimGradeTotal = arrNotesPrimGradeA.concat(arrNotesPrimGradeB);
+                sumNotesPrimGrade = arrNotesPrimGradeTotal.reduce((previus,number) => previus + number);
+                promNotesPrimGrade = sumNotesPrimGrade/arrNotesPrimGradeTotal.length; 
             }
         }
     }
 
-    return promNotesPrimCurse;
+    return promNotesPrimGrade;
+    
 }
+
+//Con esta función se calcula el promedio en los grados de secundaria (sexto a once).
+function averageNotesSecGrade (grade) {
+
+    let sumNotesSecGrade = 0;
+    let promNotesSecGrade = 0;
+    let arrNotesSecGradeA = [];
+    let arrNotesSecGradeB = [];
+    let arrNotesSecGradeTotal = [];
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                var periodsSecGradeA = secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                var periodsSecGradeB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesSecGradeA in periodsSecGradeA) {
+                    arrNotesSecGradeA.push(periodsSecGradeA[notesSecGradeA]);
+                }
+                for (let notesSecGradeB in periodsSecGradeB) {
+                    arrNotesSecGradeB.push(periodsSecGradeB[notesSecGradeB]);
+                }
+                arrNotesSecGradeTotal = arrNotesSecGradeA.concat(arrNotesSecGradeB);
+                sumNotesSecGrade = arrNotesSecGradeTotal.reduce((previus,number) => previus + number);
+                promNotesSecGrade = sumNotesSecGrade/arrNotesSecGradeTotal.length; 
+            }
+        }
+    }
+
+    return promNotesSecGrade;
+    
+}
+
