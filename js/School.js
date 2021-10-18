@@ -1,5 +1,5 @@
 /* Información de la institución */
-
+  
 let dataSchool =
     [
         {
@@ -43375,24 +43375,167 @@ function qtyTotalGirlsSec() {
 }
 
 
-var notes = Object.keys(primaryCycle[0][primDictionary.get(0)][0].estudiantes[0].asignaturas[0][subjectsDictionary.get(0)]);
-var sumNotes = 0;
-//var k = 0;
-//var l = 0;
-var promNotes = 0;
-for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-    for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
-        for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-            //console.log(primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length);
-            for (let l=0; l < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k].length; k++) {
-                console.log(primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k].length);
-                var x = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(l)];
-                let note = notes[x];
-                sumNotes += aObj[note];
-                i = i + 1;
-                promNotes = sumNotes/i;
+/**Necesidad #10: La media de las notas en primaria. */
+
+function averageNotesPrim () {
+
+    let sumNotesA = 0;
+    let promNotesA = 0;
+    let arrNotesA = [];
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                var periodsA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesA in periodsA) {
+                    arrNotesA.push(periodsA[notesA]);
+                    sumNotesA = arrNotesA.reduce((previus,number) => previus + number);
+                    promNotesA = sumNotesA/arrNotesA.length; 
+                }
             }
         }
     }
+
+
+    let sumNotesB = 0;
+    let promNotesB = 0;
+    let arrNotesB = [];
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][1].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                var periodsB = primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesB in periodsB) {
+                    arrNotesB.push(periodsB[notesB]);
+                    sumNotesB = arrNotesB.reduce((previus,number) => previus + number);
+                    promNotesB = sumNotesB/arrNotesB.length;
+                }
+            }
+        }
+    }
+
+    return (promNotesA + promNotesB)/2;
+
 }
-//console.log(promNotes);
+
+
+/**Necesidad #11: La media de las notas en el bachillerato. */
+
+function averageNotesSec () {
+
+    let sumNotesA = 0;
+    let promNotesA = 0;
+    let arrNotesA = [];
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                var periodsA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesA in periodsA) {
+                    arrNotesA.push(periodsA[notesA]);
+                    sumNotesA = arrNotesA.reduce((previus,number) => previus + number);
+                    promNotesA = sumNotesA/arrNotesA.length; 
+                }
+            }
+        }
+    }
+    
+
+    let sumNotesB = 0;
+    let promNotesB = 0;
+    let arrNotesB = [];
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                var periodsB = secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesB in periodsB) {
+                    arrNotesB.push(periodsB[notesB]);
+                    sumNotesB = arrNotesB.reduce((previus,number) => previus + number);
+                    promNotesB = sumNotesB/arrNotesB.length;
+                }
+            }
+        }
+    }
+    
+    return (promNotesA + promNotesB)/2;
+
+}
+
+
+/**Necesidad #12: La media de las notas en el colegio. */
+
+function averageNotesCollege () {
+    var a = averageNotesPrim();
+    var b = averageNotesSec();
+    var c = (a + b)/2;
+    return c;
+}
+
+
+/**Necesidad #13: La media de las notas de un curso seleccionado por parametro */
+
+//Con esta función se calcula el promedio en los cursos de primaria (A ó B).
+function averageNotesPrimCurse (grade) {
+
+    let sumNotesPrimCurse = 0;
+    let promNotesPrimCurse = 0;
+    let arrNotesPrimCurse = [];
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][grade].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][grade].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimCurse = primaryCycle[0][primDictionary.get(i)][grade].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesPrimCurse in periodsPrimCurse) {
+                    arrNotesPrimCurse.push(periodsPrimCurse[notesPrimCurse]);
+                    sumNotesPrimCurse = arrNotesPrimCurse.reduce((previus,number) => previus + number);
+                    promNotesPrimCurse = sumNotesPrimCurse/arrNotesPrimCurse.length; 
+                }
+            }
+        }
+    }
+
+    return promNotesPrimCurse;
+}
+
+//Con esta función se calcula el promedio en los cursos de secundaria (A ó B).
+function averageNotesSecCurse (grade) {
+
+    let sumNotesSecCurse = 0;
+    let promNotesSecCurse = 0;
+    let arrNotesSecCurse = [];
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][grade].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][grade].estudiantes[j].asignaturas.length; k++) {
+                var periodsSecCurse = secundaryCycle[0][secDictionary.get(i)][grade].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesSecCurse in periodsSecCurse) {
+                    arrNotesSecCurse.push(periodsSecCurse[notesSecCurse]);
+                    sumNotesSecCurse = arrNotesSecCurse.reduce((previus,number) => previus + number);
+                    promNotesSecCurse = sumNotesSecCurse/arrNotesSecCurse.length; 
+                }
+            }
+        }
+    }
+
+    return promNotesSecCurse;
+}
+
+
+/**Necesidad #14: La media de las notas de un grado seleccionado por parametro */
+
+
+function averageNotesPrimCurse (curse) {
+
+    let sumNotesPrimCurse = 0;
+    let promNotesPrimCurse = 0;
+    let arrNotesPrimCurse = [];
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimCurse = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesPrimCurse in periodsPrimCurse) {
+                    arrNotesPrimCurse.push(periodsPrimCurse[notesPrimCurse]);
+                    sumNotesPrimCurse = arrNotesPrimCurse.reduce((previus,number) => previus + number);
+                    promNotesPrimCurse = sumNotesPrimCurse/arrNotesPrimCurse.length; 
+                }
+            }
+        }
+    }
+
+    return promNotesPrimCurse;
+}
