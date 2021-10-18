@@ -43080,6 +43080,24 @@ subjectsDictionary.set(6, "biologia");
 subjectsDictionary.set(7, "quimica");
 subjectsDictionary.set(8, "fisica");
 
+let generalFunctionsDict = new Map();
+generalFunctionsDict.set('0', 'Resutados');
+generalFunctionsDict.set('1', qtyTotalEstPrim());
+generalFunctionsDict.set('2', qtyTotalEstSec());
+generalFunctionsDict.set('3', qtyTotalEst());
+generalFunctionsDict.set('4', qtyTotalBoysPrim());
+generalFunctionsDict.set('5', qtyTotalGirlsPrim());
+generalFunctionsDict.set('6', qtyTotalBoysSec());
+generalFunctionsDict.set('7', qtyTotalGirlsSec());
+generalFunctionsDict.set('8', qtyTotalBoys());
+generalFunctionsDict.set('9', qtyTotalGirls());
+generalFunctionsDict.set('10', averageNotesPrim());
+generalFunctionsDict.set('11', averageNotesSec());
+generalFunctionsDict.set('12', averageNotesCollege());
+generalFunctionsDict.set('13', medianNotesPrim());
+generalFunctionsDict.set('14', medianNotesSec());
+generalFunctionsDict.set('15', medianNotesCollege());
+
 
 /**Necesidad #1: La cantidad total de estudiantes que hay en el colegio */
 
@@ -43922,4 +43940,17 @@ function medianNotesSecCurse(curse) {
         medianaSecCurse = Math.ceil(a);
     return medianaSecCurse;
 
+}
+
+const select = document.getElementById('selectInfGenerales');
+const opcionCambiada = () => {
+    console.log('Cambio');
+  };  
+select.addEventListener('change', opcionCambiada);
+
+
+function resultsInfGenerales() {
+    const select2 = document.getElementById('selectInfGenerales').value;
+    var a = generalFunctionsDict.get(select2);
+    document.getElementById('resultsInfGenerales').innerHTML = a;
 }

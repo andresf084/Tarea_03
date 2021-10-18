@@ -8,7 +8,6 @@
     </head>
     <body>
         <p id="School"></p>
-        <script src="/js/School.js"></script>
         <header>
             <h1 id="titulo">Informes del Colegio</h1>
         </header>
@@ -19,34 +18,34 @@
                         <h2>Informes Generales</h2>
                     </span>
                     <h3>Seleccione el informe que desea generar:</h3>
-                    <select id="selectInformesGenerales">
-                        <option selected value="0"> Elige una opción </option>
+                    <select id="selectInfGenerales" onchange="resultsInfGenerales()">
+                        <option value="0"> Elige una opción </option>
                         <optgroup label="Cantidad de estudiantes"> 
                             <option value="1">Cantidad total de estudiantes que hay en primaria</option> 
                             <option value="2">Cantidad total de estudiantes que hay en bachillerato</option> 
                             <option value="3">cantidad total de estudiantes que hay en el colegio</option> 
                         </optgroup> 
                         <optgroup label="Cantidad de estudiantes por género"> 
-                            <option value="10">Cantidad de niños que hay en primaria</option> 
-                            <option value="11">Cantidad de niñas que hay en primaria</option> 
-                            <option value="12">Cantidad de niños que hay en bachillerato</option>
-                            <option value="13">Cantidad de niñas que hay en bachillerato</option>
-                            <option value="14">Cantidad de niños que hay en el colegio</option> 
-                            <option value="15">Cantidad de niñas que hay en el colegio</option>
+                            <option value="4">Cantidad de niños que hay en primaria</option> 
+                            <option value="5">Cantidad de niñas que hay en primaria</option> 
+                            <option value="6">Cantidad de niños que hay en bachillerato</option>
+                            <option value="7">Cantidad de niñas que hay en bachillerato</option>
+                            <option value="8">Cantidad de niños que hay en el colegio</option> 
+                            <option value="9">Cantidad de niñas que hay en el colegio</option>
                         </optgroup>
                         <optgroup label="Media de las notas">
-                            <option value="16">Media de las notas en primaria</option>
-                            <option value="17">Media de las notas en bachillerato</option>
-                            <option value="18">Media de las notas en el colegio</option>
+                            <option value="10">Media de las notas en primaria</option>
+                            <option value="11">Media de las notas en bachillerato</option>
+                            <option value="12">Media de las notas en el colegio</option>
                         </optgroup>
                         <optgroup label="Mediana de las notas">
-                            <option value="19">Mediana de las notas en primaria</option>
-                            <option value="20">Mediana de las notas en bachillerato</option>
-                            <option value="21">Mediana de las notas en el colegio</option>
+                            <option value="13">Mediana de las notas en primaria</option>
+                            <option value="14">Mediana de las notas en bachillerato</option>
+                            <option value="15">Mediana de las notas en el colegio</option>
                         </optgroup>
                     </select>
                     <button id="buttonInfomeGeneral" type="button" onclick="alert('El informe se ha generado con éxito!')">Generar Informe</button>
-                    <label for="selectInformesGenerales">Resultados</label> 
+                    <p id="resultsInfGenerales"></p> 
                 </div>
                 <div id="informesConParametros">
                     <span>
@@ -101,8 +100,10 @@
                 </div>
             </article>
         </main>
+        
         <footer>
-            Esta es una página de informes construida y diseñada por Carlos Andres Fandiño
+            <!--Esta es una página de informes construida y diseñada por Carlos Andres Fandiño-->
+            <script src="/js/School.js"></script>
         </footer>
     </body>
-</html>
+    </html>
