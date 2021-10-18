@@ -43581,7 +43581,6 @@ function averageNotesSecGrade(grade) {
 
 /**Función #15: La mediana de las notas en primaria */
 
-//Con esta función se calcula la mediana de las notas en los grados de primaria (primero a quinto).
 function medianNotesPrim() {
 
     let medianaPrim = 0;
@@ -43629,7 +43628,6 @@ function medianNotesPrim() {
 
 /**Función #16: La mediana de las notas en secundaria */
 
-//Con esta función se calcula la mediana de las notas en los grados de secundaria (sexto a once).
 function medianNotesSec() {
 
     let medianaSec = 0;
@@ -43748,4 +43746,159 @@ function medianNotesCollege() {
     else
         medianaCollege = Math.ceil(a);
     return medianaCollege;
+}
+
+
+/**Función #18: La mediana de las notas de un grado seleccionado por parametro */
+
+//Con esta función se calcula la mediana de las notas en los grados de primaria (primero a quinto), con el grado como parametro.
+function medianNotesPrimGrade(grade) {
+
+    let medianaPrim = 0;
+    let arrNotesPrimA = [];
+    let arrNotesPrimB = [];
+    let arrNotesPrimTotal = [];
+
+    //Con este for se itera por los cursos A.
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimA = primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesPrimA in periodsPrimA) {
+                    arrNotesPrimA.push(periodsPrimA[notesPrimA]);
+                }
+            }
+        }
+    }
+
+    //Con este for se itera por los cursos B.
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesPrimB in periodsPrimB) {
+                    arrNotesPrimB.push(periodsPrimB[notesPrimB]);
+                }
+            }
+        }
+    }
+
+    arrNotesPrimTotal = arrNotesPrimA.concat(arrNotesPrimB);
+    arrNotesPrimTotal.sort(function (a, b) {
+        return a - b;
+    });
+    a = arrNotesPrimTotal.length / 2;
+    if (arrNotesPrimTotal.length % 2 == 0)
+        medianaPrim = (arrNotesPrimTotal[a] + arrNotesPrimTotal[a + 1])/2;
+    else
+        medianaPrim = Math.ceil(a);
+    return medianaPrim;
+
+}
+
+//Con esta función se calcula la mediana de las notas en los grados de secundaria (sexto a once), con el grado como parametro.
+function medianNotesSecGrade(grade) {
+
+    let medianaSec = 0;
+    let arrNotesSecA = [];
+    let arrNotesSecB = [];
+    let arrNotesSecTotal = [];
+
+    //Con este for se itera por los cursos A.
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                var periodsSecA = secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesSecA in periodsSecA) {
+                    arrNotesSecA.push(periodsSecA[notesSecA]);
+                }
+            }
+        }
+    }
+
+    //Con este for se itera por los cursos B.
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                var periodsSecB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesSecB in periodsSecB) {
+                    arrNotesSecB.push(periodsSecB[notesSecB]);
+                }
+            }
+        }
+    }
+
+    arrNotesSecTotal = arrNotesSecA.concat(arrNotesSecB);
+    arrNotesSecTotal.sort(function (a, b) {
+        return a - b;
+    });
+    a = arrNotesSecTotal.length / 2;
+    if (arrNotesSecTotal.length % 2 == 0)
+        medianaSec = (arrNotesSecTotal[a] + arrNotesSecTotal[a + 1])/2;
+    else
+        medianaSec = Math.ceil(a);
+    return medianaSec;
+
+}
+
+
+/**Función #19: La mediana de las notas de un curso seleccionado por parametro */
+
+//Con esta función se calcula la mediana de las notas en los cursos de primaria (A o B), con el curso como parametro.
+function medianNotesPrimCurse(curse) {
+
+    let medianaPrimCurse = 0;
+    let arrNotesPrimA = [];
+ 
+    //Con este for se itera por los cursos, de acuerdo al parametro escogido.
+    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                var periodsPrimA = primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesPrimA in periodsPrimA) {
+                    arrNotesPrimA.push(periodsPrimA[notesPrimA]);
+                }
+            }
+        }
+    }
+
+    arrNotesPrimA.sort(function (a, b) {
+        return a - b;
+    });
+    a = arrNotesPrimA.length / 2;
+    if (arrNotesPrimA.length % 2 == 0)
+        medianaPrimCurse = (arrNotesPrimA[a] + arrNotesPrimA[a + 1])/2;
+    else
+        medianaPrimCurse = Math.ceil(a);
+    return medianaPrimCurse;
+
+}
+
+//Con esta función se calcula la mediana de las notas en los cursos de secundaria (A o B), con el curso como parametro.
+function medianNotesSecCurse(curse) {
+
+    let medianaSecCurse = 0;
+    let arrNotesSecA = [];
+    
+    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                var periodsSecA = secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+                for (let notesSecA in periodsSecA) {
+                    arrNotesSecA.push(periodsSecA[notesSecA]);
+                }
+            }
+        }
+    }
+
+    arrNotesSecA.sort(function (a, b) {
+        return a - b;
+    });
+    a = arrNotesSecA.length / 2;
+    if (arrNotesSecA.length % 2 == 0)
+        medianaSecCurse = (arrNotesSecA[a] + arrNotesSecA[a + 1])/2;
+    else
+        medianaSecCurse = Math.ceil(a);
+    return medianaSecCurse;
+
 }
