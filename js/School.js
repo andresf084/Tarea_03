@@ -43081,7 +43081,7 @@ subjectsDictionary.set(7, "quimica");
 subjectsDictionary.set(8, "fisica");
 
 let generalFunctionsDict = new Map();
-generalFunctionsDict.set('0', 'Resutados');
+//generalFunctionsDict.set('0', 'Resultados');
 generalFunctionsDict.set('1', qtyTotalEstPrim());
 generalFunctionsDict.set('2', qtyTotalEstSec());
 generalFunctionsDict.set('3', qtyTotalEst());
@@ -43955,3 +43955,35 @@ function resultsInfGenerales() {
     document.getElementById('resultsInfGenerales').innerHTML = a;
     alert('El informe se ha generado con éxito!')
 }
+
+
+let parameterFunctionDict = new Map();
+parameterFunctionDict.set('1', parametrosMediaGrade());
+
+
+const selectInfParametros = document.getElementById('selectInformesConParametros').value;
+
+function selectInformesParametros() {
+    const selectInfParametros = document.getElementById('selectInformesConParametros').value;
+    var a = generalFunctionsDict.get(selectInfParametros);
+    var b = parametrosMediaGrade();
+}
+
+
+function parametrosMediaGrade () {
+    const selectGrados = document.getElementById('selectGrados').value;
+    let selectGradosN = Number(selectGrados);
+
+    if(selectGradosN < 6) {
+        var a = averageNotesPrimGrade(selectGradosN-1);
+        document.getElementById('resultsInfParametros').innerHTML = a;
+        alert('El informe se ha generado con éxito!');
+    }
+    else
+        var a = averageNotesSecGrade(selectGradosN-6);
+        document.getElementById('resultsInfParametros').innerHTML = a;
+        alert('El informe se ha generado con éxito!');
+};
+
+
+

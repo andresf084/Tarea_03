@@ -19,7 +19,7 @@
                     </span>
                     <h3>Seleccione el informe que desea generar:</h3>
                     <select id="selectInfGenerales" onchange="resultsInfGenerales()">
-                        <option value="0"> Elige una opción </option>
+                        <option selected value="0"> Elige una opción </option>
                         <optgroup label="Cantidad de estudiantes"> 
                             <option value="1">Cantidad total de estudiantes que hay en primaria</option> 
                             <option value="2">Cantidad total de estudiantes que hay en bachillerato</option> 
@@ -64,45 +64,37 @@
                     </select>
                     
                     <p>
-                        <span>Elige un ciclo educativo</span>
-                        <select id="selectCycle">
-                            <option value="1">Primaria</option>
-                            <option value="2">Secundaria</option>
-                        </select>
-                    </p>
-
-                    <p>
-                        <span>Elige un grado de primaria</span>
-                       <select id="selectGradosPrimaria">
-                            <option value="1">Primero</option>
-                            <option value="2">Segundo</option>
-                            <option value="3">Tercero</option>
-                            <option value="4">Cuarto</option>
-                            <option value="5">Quinto</option>
+                        <span>Elige un grado</span>
+                       <select id="selectGrados">
+                           <option selected value="0"> Elige una opción </option>
+                           <optgroup label="Grados de primaria">
+                                <option value="1">Primero</option>
+                                <option value="2">Segundo</option>
+                                <option value="3">Tercero</option>
+                                <option value="4">Cuarto</option>
+                                <option value="5">Quinto</option>
+                            </optgroup>
+                            <optgroup label="Grados de secundaria">
+                                <option value="6">Sexto</option>
+                                <option value="7">Séptimo</option>
+                                <option value="8">Octavo</option>
+                                <option value="9">Noveno</option>
+                                <option value="10">Décimo</option>
+                                <option value="11">Once</option>
+                            </optgroup>
                        </select>
-                    </p>
-                    
-                    <p>
-                        <span>Elige un grado de secundaria</span>
-                        <select id="selectGradosSecundaria">
-                            <option value="1">Sexto</option>
-                            <option value="2">Séptimo</option>
-                            <option value="3">Octavo</option>
-                            <option value="4">Noveno</option>
-                            <option value="5">Décimo</option>
-                            <option value="6">Once</option>
-                        </select>
                     </p>
                     
                     <p>
                         <span>Elige un curso</span>
                        <select id="selectCursos">
+                            <option selected value="0"> Elige una opción </option>
                             <option value="1">Curso A</option>
                             <option value="2">Curso B</option>
                        </select>
                     </p>
 
-                    <label for="selectInformesConParametros">Resultados</label>
+                    <p id="resultsInfParametros"></p>
                 </div>
             </article>
         </main>
