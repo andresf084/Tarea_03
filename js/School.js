@@ -43953,4 +43953,5 @@ function resultsInfGenerales() {
     const select2 = document.getElementById('selectInfGenerales').value;
     var a = generalFunctionsDict.get(select2);
     document.getElementById('resultsInfGenerales').innerHTML = a;
+    alert('El informe se ha generado con éxito!')
 }

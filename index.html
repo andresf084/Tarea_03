@@ -44,7 +44,6 @@
                             <option value="15">Mediana de las notas en el colegio</option>
                         </optgroup>
                     </select>
-                    <button id="buttonInfomeGeneral" type="button" onclick="alert('El informe se ha generado con éxito!')">Generar Informe</button>
                     <p id="resultsInfGenerales"></p> 
                 </div>
                 <div id="informesConParametros">
@@ -64,38 +63,45 @@
                         </optgroup>
                     </select>
                     
-                    <span>Elige un ciclo educativo</span>
-                    <input id="primaria" type="radio">
-                    <label for="primaria">Primaria</label>
-                    <input id="secundaria" type="radio">
-                    <label for="secundaria">Secundaria</label>
-                    
-                    <select id="gradosPrimaria">
-                        <option selected value="0">Elige un grado</option>
-                        <option value="1">Primero</option>
-                        <option value="2">Segundo</option>
-                        <option value="3">Tercero</option>
-                        <option value="4">Cuarto</option>
-                        <option value="5">Quinto</option>
-                    </select>
+                    <p>
+                        <span>Elige un ciclo educativo</span>
+                        <select id="selectCycle">
+                            <option value="1">Primaria</option>
+                            <option value="2">Secundaria</option>
+                        </select>
+                    </p>
 
-                    <select id="gradosSecundaria">
-                        <option selected value="0">Elige un grado</option>
-                        <option value="1">Sexto</option>
-                        <option value="2">Séptimo</option>
-                        <option value="3">Octavo</option>
-                        <option value="4">Noveno</option>
-                        <option value="5">Décimo</option>
-                        <option value="6">Once</option>
-                    </select>
+                    <p>
+                        <span>Elige un grado de primaria</span>
+                       <select id="selectGradosPrimaria">
+                            <option value="1">Primero</option>
+                            <option value="2">Segundo</option>
+                            <option value="3">Tercero</option>
+                            <option value="4">Cuarto</option>
+                            <option value="5">Quinto</option>
+                       </select>
+                    </p>
                     
-                    <select id="cursos">
-                        <option selected value="0">Elige un curso</option>
-                        <option value="1">Curso A</option>
-                        <option value="2">Curso B</option>
-                    </select>
-                    <button id="buttonInfomeParameters" type="button" onclick="alert('El informe se ha generado con éxito!')">Generar Informe</button>
+                    <p>
+                        <span>Elige un grado de secundaria</span>
+                        <select id="selectGradosSecundaria">
+                            <option value="1">Sexto</option>
+                            <option value="2">Séptimo</option>
+                            <option value="3">Octavo</option>
+                            <option value="4">Noveno</option>
+                            <option value="5">Décimo</option>
+                            <option value="6">Once</option>
+                        </select>
+                    </p>
                     
+                    <p>
+                        <span>Elige un curso</span>
+                       <select id="selectCursos">
+                            <option value="1">Curso A</option>
+                            <option value="2">Curso B</option>
+                       </select>
+                    </p>
+
                     <label for="selectInformesConParametros">Resultados</label>
                 </div>
             </article>
