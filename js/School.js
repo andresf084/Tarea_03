@@ -1,6 +1,6 @@
 /* Información de la institución */
 
-let dataSchool =
+const dataSchool =
     [
         {
             "colegio": {
@@ -43103,20 +43103,20 @@ generalFunctionsDict.set('15', medianNotesCollege());
 
 function qtyTotalEst() {
 
-    var estGradoA = 0;
-    var estGradoB = 0;
-    var estPrimaria = 0;
-    var estSecundaria = 0;
+    let estGradoA = 0;
+    let estGradoB = 0;
+    let estPrimaria = 0;
+    let estSecundaria = 0;
 
     /* Calcular la cantidad de estudiantes de primaria */
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
         estGradoA = estGradoA + primaryCycle[0][primDictionary.get(i)][0].estudiantes.length;
         estGradoB = estGradoB + primaryCycle[0][primDictionary.get(i)][1].estudiantes.length;
         estPrimaria = estGradoA + estGradoB;
     }
 
     /* Calcular la cantidad de estudiantes de secundaria */
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
         estGradoA = estGradoA + secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length;
         estGradoB = estGradoB + secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length;
         estSecundaria = estGradoA + estGradoB;
@@ -43131,12 +43131,12 @@ function qtyTotalEst() {
 
 function qtyTotalEstPrim() {
 
-    var estGradoA = 0;
-    var estGradoB = 0;
-    var estPrimaria = 0;
+    let estGradoA = 0;
+    let estGradoB = 0;
+    let estPrimaria = 0;
 
     /* Calcular la cantidad de estudiantes de primaria */
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
         estGradoA = estGradoA + primaryCycle[0][primDictionary.get(i)][0].estudiantes.length;
         estGradoB = estGradoB + primaryCycle[0][primDictionary.get(i)][1].estudiantes.length;
         estPrimaria = estGradoA + estGradoB;
@@ -43151,12 +43151,12 @@ function qtyTotalEstPrim() {
 
 function qtyTotalEstSec() {
 
-    var estGradoA = 0;
-    var estGradoB = 0;
-    var estSecundaria = 0;
+    let estGradoA = 0;
+    let estGradoB = 0;
+    let estSecundaria = 0;
 
     /* Calcular la cantidad de estudiantes de secundaria */
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
         estGradoA = estGradoA + secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length;
         estGradoB = estGradoB + secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length;
         estSecundaria = estGradoA + estGradoB;
@@ -43172,13 +43172,13 @@ function qtyTotalEstSec() {
 function qtyTotalBoys() {
 
     /**Calcular la cantidad de niños que hay en primaria */
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyMalePrim = 0;
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
             genGradoA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].genero; //Para grado A. Se guarda el resultado del género en la variable.
             if (genGradoA == 'male') //Para grado A. Se evalua el género, si es male aumenta en uno (1) el contador.
                 k = k + 1;
@@ -43194,13 +43194,13 @@ function qtyTotalBoys() {
     }
 
     /**Calcular la cantidad de niños que hay en secundaria */
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyMaleSec = 0;
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
             genGradoA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].genero;
             if (genGradoA == 'male')
                 k = k + 1;
@@ -43225,13 +43225,13 @@ function qtyTotalBoys() {
 function qtyTotalGirls() {
 
     /**Calcular la cantidad de niñas que hay en primaria */
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyFemalePrim = 0;
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
             genGradoA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].genero; //Para grado A. Se guarda el resultado del género en la variable.
             if (genGradoA == 'female') //Para grado A. Se evalua el género, si es male aumenta en uno (1) el contador.
                 k = k + 1;
@@ -43247,13 +43247,13 @@ function qtyTotalGirls() {
     }
 
     /**Calcular la cantidad de niñas que hay en secundaria */
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyFemaleSec = 0;
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
             genGradoA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].genero;
             if (genGradoA == 'female')
                 k = k + 1;
@@ -43278,13 +43278,13 @@ function qtyTotalGirls() {
 function qtyTotalBoysPrim() {
 
     /**Calcular la cantidad de niños que hay en primaria */
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyMalePrim = 0;
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {     //Se itera a través de los cursos.
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {        //Se itera a través de los estudiantes.
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {     //Se itera a través de los cursos.
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {        //Se itera a través de los estudiantes.
             genGradoA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].genero; //Para grado A. Se guarda el resultado del género en la variable.
             if (genGradoA == 'male') //Para grado A. Se evalua el género, si es male aumenta en uno (1) el contador.
                 k = k + 1;
@@ -43307,13 +43307,13 @@ function qtyTotalBoysPrim() {
 
 function qtyTotalGirlsPrim() {
 
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyFemalePrim = 0;
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
             genGradoA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].genero; //Para grado A. Se guarda el resultado del género en la variable.
             if (genGradoA == 'female') //Para grado A. Se evalua el género, si es male aumenta en uno (1) el contador.
                 k = k + 1;
@@ -43337,13 +43337,13 @@ function qtyTotalGirlsPrim() {
 
 function qtyTotalBoysSec() {
 
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyMaleSec = 0;
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
             genGradoA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].genero;
             if (genGradoA == 'male')
                 k = k + 1;
@@ -43367,13 +43367,13 @@ function qtyTotalBoysSec() {
 
 function qtyTotalGirlsSec() {
 
-    var genGradoA = '';
-    var genGradoB = '';
-    var k = 0;
-    var l = 0;
+    let genGradoA = '';
+    let genGradoB = '';
+    let k = 0;
+    let l = 0;
     let qtyFemaleSec = 0;
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
             genGradoA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].genero;
             if (genGradoA == 'female')
                 k = k + 1;
@@ -43400,10 +43400,10 @@ function averageNotesPrim() {
     let sumNotesA = 0;
     let promNotesA = 0;
     let arrNotesA = [];
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesA in periodsA) {
                     arrNotesA.push(periodsA[notesA]);
                     sumNotesA = arrNotesA.reduce((previus, number) => previus + number);
@@ -43417,10 +43417,10 @@ function averageNotesPrim() {
     let sumNotesB = 0;
     let promNotesB = 0;
     let arrNotesB = [];
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][1].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsB = primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][1].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsB = primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesB in periodsB) {
                     arrNotesB.push(periodsB[notesB]);
                     sumNotesB = arrNotesB.reduce((previus, number) => previus + number);
@@ -43442,10 +43442,10 @@ function averageNotesSec() {
     let sumNotesA = 0;
     let promNotesA = 0;
     let arrNotesA = [];
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesA in periodsA) {
                     arrNotesA.push(periodsA[notesA]);
                     sumNotesA = arrNotesA.reduce((previus, number) => previus + number);
@@ -43459,10 +43459,10 @@ function averageNotesSec() {
     let sumNotesB = 0;
     let promNotesB = 0;
     let arrNotesB = [];
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsB = secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsB = secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesB in periodsB) {
                     arrNotesB.push(periodsB[notesB]);
                     sumNotesB = arrNotesB.reduce((previus, number) => previus + number);
@@ -43480,9 +43480,9 @@ function averageNotesSec() {
 /**Necesidad #12: La media de las notas en el colegio. */
 
 function averageNotesCollege() {
-    var a = averageNotesPrim();
-    var b = averageNotesSec();
-    var c = (a + b) / 2;
+    let a = averageNotesPrim();
+    let b = averageNotesSec();
+    let c = (a + b) / 2;
     return c;
 }
 
@@ -43495,10 +43495,10 @@ function averageNotesPrimCurse(curse) {
     let sumNotesPrimCurse = 0;
     let promNotesPrimCurse = 0;
     let arrNotesPrimCurse = [];
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][curse].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimCurse = primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimCurse = primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimCurse in periodsPrimCurse) {
                     arrNotesPrimCurse.push(periodsPrimCurse[notesPrimCurse]);
                     sumNotesPrimCurse = arrNotesPrimCurse.reduce((previus, number) => previus + number);
@@ -43517,10 +43517,10 @@ function averageNotesSecCurse(curse) {
     let sumNotesSecCurse = 0;
     let promNotesSecCurse = 0;
     let arrNotesSecCurse = [];
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecCurse = secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecCurse = secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecCurse in periodsSecCurse) {
                     arrNotesSecCurse.push(periodsSecCurse[notesSecCurse]);
                     sumNotesSecCurse = arrNotesSecCurse.reduce((previus, number) => previus + number);
@@ -43546,10 +43546,10 @@ function averageNotesPrimGrade(grade) {
     let arrNotesPrimGradeTotal = [];
     
     //Con este for se itera por los cursos A.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][0].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimGradeA = primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimGradeA = primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimGradeA in periodsPrimGradeA) {
                     arrNotesPrimGradeA.push(periodsPrimGradeA[notesPrimGradeA]);
                 }
@@ -43558,10 +43558,10 @@ function averageNotesPrimGrade(grade) {
     }
 
     //Con este for se itera por los cursos B.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][1].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimGradeB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimGradeB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimGradeB in periodsPrimGradeB) {
                     arrNotesPrimGradeB.push(periodsPrimGradeB[notesPrimGradeB]);
                 }
@@ -43587,10 +43587,10 @@ function averageNotesSecGrade(grade) {
     let arrNotesSecGradeTotal = [];
 
     //Con este for se itera por los cursos A.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecGradeA = secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecGradeA = secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecGradeA in periodsSecGradeA) {
                     arrNotesSecGradeA.push(periodsSecGradeA[notesSecGradeA]);
                 }
@@ -43599,10 +43599,10 @@ function averageNotesSecGrade(grade) {
     }
 
     //Con este for se itera por los cursos B.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecGradeB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecGradeB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecGradeB in periodsSecGradeB) {
                     arrNotesSecGradeB.push(periodsSecGradeB[notesSecGradeB]);
                 }
@@ -43628,10 +43628,10 @@ function medianNotesPrim() {
     let arrNotesPrimTotal = [];
 
     //Con este for se itera por los cursos A.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimA in periodsPrimA) {
                     arrNotesPrimA.push(periodsPrimA[notesPrimA]);
                 }
@@ -43640,10 +43640,10 @@ function medianNotesPrim() {
     }
 
     //Con este for se itera por los cursos B.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][1].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimB = primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][1].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimB = primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimB in periodsPrimB) {
                     arrNotesPrimB.push(periodsPrimB[notesPrimB]);
                 }
@@ -43675,10 +43675,10 @@ function medianNotesSec() {
     let arrNotesSecTotal = [];
 
     //Con este for se itera por los cursos A.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecA in periodsSecA) {
                     arrNotesSecA.push(periodsSecA[notesSecA]);
                 }
@@ -43687,10 +43687,10 @@ function medianNotesSec() {
     }
 
     //Con este for se itera por los cursos B.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecB = secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecB = secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecB in periodsSecB) {
                     arrNotesSecB.push(periodsSecB[notesSecB]);
                 }
@@ -43726,10 +43726,10 @@ function medianNotesCollege() {
     let arrNotesCollege = [];
 
     //Con este for se itera por los cursos A de primaria.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][0].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimA = primaryCycle[0][primDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimA in periodsPrimA) {
                     arrNotesPrimA.push(periodsPrimA[notesPrimA]);
                 }
@@ -43738,10 +43738,10 @@ function medianNotesCollege() {
     }
 
     //Con este for se itera por los cursos B de primaria.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][1].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimB = primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][1].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimB = primaryCycle[0][primDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimB in periodsPrimB) {
                     arrNotesPrimB.push(periodsPrimB[notesPrimB]);
                 }
@@ -43750,10 +43750,10 @@ function medianNotesCollege() {
     }
 
     //Con este for se itera por los cursos A de secundaria.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][0].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecA = secundaryCycle[0][secDictionary.get(i)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecA in periodsSecA) {
                     arrNotesSecA.push(periodsSecA[notesSecA]);
                 }
@@ -43762,10 +43762,10 @@ function medianNotesCollege() {
     }
 
     //Con este for se itera por los cursos B  de secundaria.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecB = secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][1].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecB = secundaryCycle[0][secDictionary.get(i)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecB in periodsSecB) {
                     arrNotesSecB.push(periodsSecB[notesSecB]);
                 }
@@ -43799,10 +43799,10 @@ function medianNotesPrimGrade(grade) {
     let arrNotesPrimTotal = [];
 
     //Con este for se itera por los cursos A.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][0].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimA = primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimA = primaryCycle[0][primDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimA in periodsPrimA) {
                     arrNotesPrimA.push(periodsPrimA[notesPrimA]);
                 }
@@ -43811,10 +43811,10 @@ function medianNotesPrimGrade(grade) {
     }
 
     //Con este for se itera por los cursos B.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(grade)][1].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimB = primaryCycle[0][primDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimB in periodsPrimB) {
                     arrNotesPrimB.push(periodsPrimB[notesPrimB]);
                 }
@@ -43844,10 +43844,10 @@ function medianNotesSecGrade(grade) {
     let arrNotesSecTotal = [];
 
     //Con este for se itera por los cursos A.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecA = secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecA = secundaryCycle[0][secDictionary.get(grade)][0].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecA in periodsSecA) {
                     arrNotesSecA.push(periodsSecA[notesSecA]);
                 }
@@ -43856,10 +43856,10 @@ function medianNotesSecGrade(grade) {
     }
 
     //Con este for se itera por los cursos B.
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecB = secundaryCycle[0][secDictionary.get(grade)][1].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecB in periodsSecB) {
                     arrNotesSecB.push(periodsSecB[notesSecB]);
                 }
@@ -43890,10 +43890,10 @@ function medianNotesPrimCurse(curse) {
     let arrNotesPrimA = [];
 
     //Con este for se itera por los cursos, de acuerdo al parametro escogido.
-    for (var i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
-        for (var j = 0; j < primaryCycle[0][primDictionary.get(i)][curse].estudiantes.length; j++) {
-            for (var k = 0; k < primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
-                var periodsPrimA = primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(primaryCycle[0]).length; i++) {
+        for (let j = 0; j < primaryCycle[0][primDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (let k = 0; k < primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                let periodsPrimA = primaryCycle[0][primDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesPrimA in periodsPrimA) {
                     arrNotesPrimA.push(periodsPrimA[notesPrimA]);
                 }
@@ -43919,10 +43919,10 @@ function medianNotesSecCurse(curse) {
     let medianaSecCurse = 0;
     let arrNotesSecA = [];
 
-    for (var i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
-        for (var j = 0; j < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes.length; j++) {
-            for (var k = 0; k < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
-                var periodsSecA = secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
+    for (let i = 0; i < Object.keys(secundaryCycle[0]).length; i++) {
+        for (let j = 0; j < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes.length; j++) {
+            for (let k = 0; k < secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas.length; k++) {
+                let periodsSecA = secundaryCycle[0][secDictionary.get(i)][curse].estudiantes[j].asignaturas[k][subjectsDictionary.get(k)];
                 for (let notesSecA in periodsSecA) {
                     arrNotesSecA.push(periodsSecA[notesSecA]);
                 }
@@ -43951,13 +43951,13 @@ select.addEventListener('change', opcionCambiada);
 
 function resultsInfGenerales() {
     const select2 = document.getElementById('selectInfGenerales').value;
-    var a = generalFunctionsDict.get(select2);
+    let a = generalFunctionsDict.get(select2);
     document.getElementById('resultsInfGenerales').innerHTML = a;
     alert('El informe se ha generado con éxito!')
 }
 
 
-let parameterFunctionDict = new Map();
+/*let parameterFunctionDict = new Map();
 parameterFunctionDict.set('1', parametrosMediaGrade());
 
 
@@ -43983,7 +43983,25 @@ function parametrosMediaGrade () {
         var a = averageNotesSecGrade(selectGradosN-6);
         document.getElementById('resultsInfParametros').innerHTML = a;
         alert('El informe se ha generado con éxito!');
-};
+};*/
+
+
+/*funcion = () => "Vivo en Colombia";
+console.log(funcion());
+
+introduce = (nombre, apellido, pais, edad) => `Hola ${nombre} ${apellido} de ${pais}, me dicen que tienes ${edad} años, es esto cierto?`;
+
+console.log(introduce('Andres','Fandiño','Colombia',37));*/
+
+
+/*saludar = (nombre,edad,genero) => {
+if (edad > 18)
+    return `Hola ${nombre} tu edad es ${edad} años, por lo tanto eres un ${genero} mayor de edad`;
+else 
+    return `Hola ${nombre} tu edad es ${edad} años, por lo tanto eres un ${genero} que aún no es mayor de edad`;
+}
+
+console.log(saludar("Andres","37","hombre"));*/
 
 
 
